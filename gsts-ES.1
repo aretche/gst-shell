@@ -1,0 +1,224 @@
+.TH GSTShell  1
+
+
+
+.SH NAME
+GSTShell - Galante Schab Tommasi Schab Shell
+
+
+
+.SH SYNOPSIS
+.B GSTShell
+
+
+
+.SH COPYRIGHT
+ GSTShell is Copyright (C) 2013-2014 Free Software Foundation, Inc.	
+
+
+
+
+.SH DESCRIPTION
+GSTShell es un intérprete primitivo de lenguaje de comandos que ejecuta órdenes leídas de la entrada estándar.
+.br 
+GSTShell tambien incorpora algunos comandos del shell BASH como comandos internos, entre ellos cd, ls y cat.
+.br 
+GSTShell es un shell experimental creado para el Trabajo Final 2013 "Desarrollo e implementación de un shell experimental" de la materia Sistemas Operativos de FRCU - UTN.
+
+
+
+
+.SH PARAMETERS
+.B Variables
+
+.B usuarioActual
+.br
+          Mantiene el nombre de del usuario actual que se encuentra
+.br
+          trabajando en el equipo.
+.PP
+.B hostActual
+.br
+          Guarda el nombre del equipo.
+.PP
+.B dir
+.br
+          Mantiene la ruta del directorio de trabajo actual.
+.PP
+.B olddir
+.br 
+          Mantiene la ruta del directorio de trabajo anterior al 
+.br
+          actual.
+.PP
+.B home
+.br
+          Mantiene la ruta del directorio Home del Sistema de Archivos.
+.PP
+.B homeMasUsuarioActual
+.br
+          Guarda la ruta del directorio del usuario actual en el 
+.br
+          Sistema de Archivos.
+
+
+
+
+.SH REDIRECTION
+.B Redireccion de Salida estandar
+.br
+GSTShell posee dos formas para la redireccion de la salida estandar: 
+.br
+[n]>arch
+.br
+        Guarda la salida del comando "n" en el archivo "arch". Si el
+.br
+        archivo no existe, lo crea, y si existe lo reescribe.
+.br
+[n]>>arch
+.br
+         Guarda la salida del comando "n" en el archivo "arch". Si el
+.br
+         archivo no existe, lo crea, y si existe lo agrega al final.
+
+
+
+
+.SH PIPE
+[n] | [m]
+.br
+El comando pipe envia la salida del comando "n" como entrada al comando "m".
+
+
+
+
+
+.SH SHELL BUILTIN COMMANDS
+
+.B milsl [ruta] 
+.br
+          Lista en pantalla los archivos del directorio actual en
+.br
+          formato completo (tipo de archivo, permisos, usuario y
+.br 
+          grupo, tamaño, ultima fecha de modificacion y nombre)
+.br 
+          y con color. 
+.br
+          Si no se le pasa el parametro "ruta" lista el directorio
+.br
+          actual, en caso contrario lista el directorio que se 
+.br
+          especifique en "ruta". La ruta puede ser absoluta o relativa.
+.br
+          Lista ordenado y no muestra archivos ocultos.
+.PP
+.B milsa [ruta]
+.br
+          Lista en pantalla los archivos del directorio actual con
+.br
+          color. 
+.br
+          Si no se le pasa el parametro "ruta" lista el directorio
+.br
+          actual, en caso contrario lista el directorio que se
+.br       
+          especifique en "ruta". La ruta puede ser absoluta o
+.br
+          relativa.
+.br
+          Lista ordenado y muestra archivos ocultos.
+.PP
+.B milsf [ruta]
+.br
+          Lista en pantalla los archivos del directorio actual. 
+.br
+          Si no se le pasa el parametro "ruta" lista el
+.br
+          directorio actual, en caso contrario lista el
+.br
+          directorio que se especifique en "ruta".
+.br
+          La ruta puede ser absoluta o relativa.
+.br
+          Muestra archivos ocultos.
+.PP
+.B mipwd
+.br 
+          Muestra en pantalla la ruta del directorio actual de trabajo.
+.PP
+.B micd [r]
+.br
+          Cambia el directorio de trabajo actual dependiendo del valor
+.br
+          de "r".
+.br
+          Si "r" es una ruta absoluta o relativa cambia el directorio
+.br
+          actual a esta ruta (si es relativa toma como base la ruta
+.br
+          del directorio actual).
+.br
+          Si "r" es igual a "." mantiene el directorio actual.
+.br      
+          Si "r" es igual a ".." cambia el directorio actual al 
+.br
+          directorio padre del directorio actual.
+.br
+          Si "r" es igual a "-" cambia el directorio actual al
+.br
+          directorio de trabajo anterior.
+.br
+          Si "r" es igual a "~" cambia el directorio actual
+.br
+          al directorio HOME. 
+.PP
+.B mikill [pid] [señal] 
+.br 
+          Envia "señal" al proceso de pid "pid". Ambos parametros
+.br
+          deben ser numericos. 
+.PP
+.B micat [archivo1] [archvo2]
+.br 
+          Concatena "archivo1" con "archivo2" y los muestra en
+.br
+          pantalla. 
+.br
+          Si solo se le pasa un archivo, lo muestra en pantalla.
+.br
+          Si no se le pasa ningun archivo, lee de la entrada
+.br
+          estandar y muestra lo leido.
+
+.PP
+.B mibg [pid]
+          Envía "pid" a segundo plano y pausa
+
+.PP
+.B mifg [pid]
+          Trae "pid" a primer plano y reanuda.
+.br
+          En caso que no se le pase ningún "pid" como
+.br
+          parámetro, traerá a primer plano y renaudará
+.br       
+          el último proceso afectado por "mibg".
+
+
+.SH COPYRIGHT
+Copyright  ©  2012  Free Software Foundation, Inc.  License GPLv3+: GNU
+
+.SH SEE ALSO
+Para ver el manual en ingles haga 'man gsts-EN'.
+
+
+.SH AUTHORS
+Esteban Schab - esteban.schab@gmail.com
+.br 
+Juan Schab - juan.28.256@gmail.com
+.br 
+Santiago German Tommasi - santiagotommasi92@gmail.com
+.br 
+Leonardo Galante - leonslacker@gmail.com
+

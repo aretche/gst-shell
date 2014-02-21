@@ -1,0 +1,257 @@
+.TH GSTShell  1
+
+
+
+.SH NAME
+GSTShell - Galante Schab Tommasi Schab Shell
+
+
+
+.SH SYNOPSIS
+.B GSTShell
+
+
+
+.SH COPYRIGHT
+ GSTShell is Copyright (C) 2013-2014 by the GSTS Foundation, Inc.	
+
+
+
+
+.SH DESCRIPTION
+GSTShell is a primitive command language interpreter that executes
+.br
+commands read from the standard input.
+.br
+GSTShell also incorporates some BASH shell commands as internal commands, including cd, ls and cat.
+.br 
+GSTShell is an experimental shell created for the 2013 Final Project
+.br
+"Development and implementation of an experimental shell" of the 
+.br
+subject Operating Systems from university Facultad Regional Concepción del Uruguay - Universidad Tecnológica Nacional
+
+
+
+
+.SH PARAMETERS
+.B Variables
+
+.B usuarioActual
+.br
+          Holds the name of the current user who is 
+.br
+          working on the computer.
+.PP
+.B hostActual
+.br
+          Holds the name of the current host.
+.PP
+.B dir
+.br
+          Holds the path directory of the actual job.
+.PP
+.B olddir
+.br 
+          Maintains directory path of before job at present.
+.PP
+.B home
+.br
+          Keeps the Home directory path from the File System.
+.PP
+.B homeMasUsuarioActual
+.br
+          Keeps the sum the home directory plus the name of the current user.
+.PP
+.B Entrada
+.br
+          Used for the command input to execute and the
+.br
+          treatment of them.
+.PP
+.B Entrada2
+.br
+          Used to handling the redirection or the pipes.
+.PP
+.B dat
+.br
+          Used for passing information between the Shell and commands.
+.br      
+          and commands.
+.PP
+.B t,f
+.br
+          Used for handling pipes.
+.PP
+.B pid
+.br
+          Used to launch external programs with fork() call.
+
+
+
+
+.SH REDIRECTION
+.B Redirection of standard output.
+.br
+GSTShell has two forms for the redirection of the standar output:
+.br
+[n]>arch
+.br
+        Save the output of "n" command in the file "arch". If the
+.br
+        file does not exist, creates it, and if not it rewrites.
+.br
+[n]>>arch
+.br
+         Save the output of "n" command in the file "arch". If the
+.br
+         file does not exist, creates it, and if not adds it to the end.
+
+
+
+
+.SH PIPE
+[n] | [m]
+.br
+The pipe command sends the output of the "n" command as input to the "m"
+.br
+command.
+
+
+
+
+
+.SH SHELL BUILTIN COMMANDS
+
+.B milsl [ruta] 
+.br
+          Show on screen the files of the current path in
+.br
+          complete format (file type, permissions, user and
+.br 
+          group, size, last modified date and name)
+.br 
+          and with color.
+.br
+          If you do not pass the parameter "ruta" shows the current
+.br
+          directory, otherwise shows the directory that it's
+.br
+          specified in "ruta". The path "ruta" can be absolute
+.br
+		or relative.
+.br
+          Ordered list and does not show hidden files.
+
+.PP
+.B milsa [ruta]
+.br
+          Show on screen the files of the current path with color.
+.br
+          If you do not pass the parameter "ruta" shows the current
+.br
+          directory, otherwise shows the directory that it's
+.br
+          specified in "ruta". The path "ruta" can be absolute
+.br
+		or relative.
+.br
+          Ordered list and show hidden files.
+
+.PP
+.B milsf [ruta]
+.br
+          Show on screen the files of the current path.
+.br
+          If you do not pass the parameter "ruta" shows the current
+.br
+          directory, otherwise shows the directory that it's
+.br
+          specified in "ruta". The path "ruta" can be absolute
+.br
+		or relative.
+.br
+          Show hidden files.
+
+.PP
+.B mipwd
+.br 
+          Displays the path of the current working directory.
+          
+.PP
+.B micd [r]
+.br
+          Change the current working directory depending the value of "r"
+.br
+          Si "r" es una ruta absoluta o relativa cambia el directorio
+          If "r" is a absolute or a relative path changes the current
+.br
+          actual a esta ruta (si es relativa toma como base la ruta
+          directory to this path (if it is relative take as a base
+.br
+          the path of the current path)
+.br
+          If "r" is equal to "." maintains the current directory.
+.br      
+          If "r" is equal to ".." changes the current directory to
+.br
+          the father directory of the current directory.
+.br
+          If "r" is equal to "-" changes the current path to the
+.br
+          path of the previous work.
+.br
+          If "r" is equal to "~" changes the current path
+.br 
+          to the HOME directory
+
+.PP
+.B mikill [pid] [señal] 
+.br 
+          Sends "señal" to the process id "pid". Both parameters
+.br 
+          must be numeric.
+
+.PP
+.B micat [archivo1] [archvo2]
+.br 
+          Concatenates "archivo1" with "archivo2" and shows it
+.br
+          on screen. 
+.br
+          If you put only one file, shows it on screen.
+.br
+          If you do not pass no file, reads the standard
+.br
+          output and displays what read.
+
+
+.PP
+.B mibg [pid]
+          Sends "pid" to the background and pauses it.
+
+.PP
+.B mifg [pid]
+          Brings "pid" to the foreground and resumes it.
+.br
+          In case that there is no parameter "pid" 
+.br
+          will bring to the foreground the last process
+.br       
+          affected by "mibg"
+
+.SH COPYRIGHT
+Copyright  ©  2012  Free Software Foundation, Inc.  License GPLv3+: GNU
+
+.SH SEE ALSO
+To see the manual in spanish do 'man gsts-ES'.
+
+
+.SH AUTHORS
+Esteban Schab - esteban.schab@gmail.com
+.br 
+Juan Schab - juan.28.256@gmail.com
+.br 
+Santiago German Tommasi - santiagotommasi92@gmail.com
+.br 
+Leonardo Galante - leonslacker@gmail.com

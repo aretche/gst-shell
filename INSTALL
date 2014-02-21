@@ -1,0 +1,28 @@
+INSTALL - Instrucciones de instalación
+
+
+ESPAÑOL - SPANISH
+
+1) Descargue los siguientes archivos de la carpeta de Google Drive:
+MacroUtils.pas ; TDALista.pas ; shell.pas ; gsts-EN.1 ; gsts-ES.1 ; Makefile
+
+2) Abra una terminal y ejecute "sudo make install Makefile" o bien sino posee derechos de administrador "make install Makefile"
+
+3) En la misma terminal ejecute "sudo cp gsts-EN.1 /usr/share/man/es/man1/ & sudo cp gsts-ES.1 /usr/share/man/es/man1/"
+
+4) En la misma terminal, sin moverse de carpeta, ejecute "./shell".
+
+5) Para mas información ejecute "man gsts-EN" para el manual en Inglés o "man gsts-ES" para el manual en Español.
+
+INGLÉS - ENGLISH
+
+1) Download the following files from the Google Drive directory:
+MacroUtils.pas ; TDALista.pas ; shell.pas ; gsts-EN.1 ; gsts-ES.1 ; Makefile
+
+2) Open a terminal and execute "sudo make install Makefile" or if you do not have root permissions execute "make install Makefile"
+
+3) In the same terminal, execute "sudo cp gsts-EN.1 /usr/share/man/es/man1/ & sudo cp gsts-ES.1 /usr/share/man/es/man1/"
+
+4) In the same terminal, without moving to any other directory, execute "./shell".
+
+5) For more information execute "man gsts-EN" to see the manual in English or "man gsts-ES" to see the manual in Spanish.

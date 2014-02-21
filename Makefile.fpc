@@ -1,0 +1,7 @@
+[target]
+programs=TDALista shell MacroUtils
+units=TDALista MacroUtils
+
+[compiler]
+version=2.4.0
+
